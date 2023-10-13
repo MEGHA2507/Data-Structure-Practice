@@ -1,4 +1,5 @@
-// given are two sorted arrays. write a function which accepts two sorted arrays and merge them to return an array which is sorted;
+// given are two sorted arrays. 
+//write a function which accepts two sorted arrays and merge them to return an array which is sorted;
 //  array1 = [0,3,4,31]
 // array2 = [4,6,30]
 
