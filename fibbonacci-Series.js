@@ -1,4 +1,27 @@
-// fibonacci till nth Term
+// given a number N return the index value of the fibonacci sequence of N,
+// where the sequence is:
+
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
+// the pattern of sequence is that each value is the sum of the 2 
+// previous values, that means that for N=5 -> 2+3
+
+
+function fibonacciIterative(number){
+
+}
+
+fibonacciIterative(5);
+
+function fibonacciRecursive(number){
+    if(number < 2){
+        return number;
+    }
+    return fibonacciRecursive(number-1) + fibonacciRecursive(number -2);
+}
+
+console.log(fibonacciRecursive(8));
+
+// print fibonacci series till nth Term
 
 function fibonacci(num) {
     if (num == 1)
