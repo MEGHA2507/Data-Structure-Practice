@@ -32,3 +32,21 @@ function stringReverse(str) {
 //const stringReverse = (str) => [...str].reverse().join("");
 
 console.log(stringReverse(str));
+
+// reverse a string with recursive easier.
+function reverse(str , len){
+    if(len < 1){
+    return
+    }
+    // base case
+    if(len === 1){
+    return str[0]
+    }
+     
+    return str[len-1] + reverse(str , len -1 )
+     
+    }
+      
+     // Driver code
+      
+     console.log(reverse(str, str.length))
