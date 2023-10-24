@@ -164,7 +164,133 @@ function postForComment(posts, comment) {
 console.log(postForComment(posts, comment));
 
 //every
-//some
-//reduce
 
-// forEach -> array help
+var computers = [
+  { name: "Apple", ram: 24 },
+  { name: "Compaq", ram: 4 },
+  { name: "Acer", ram: 32 },
+];
+
+var allComputersCanRunProgram = true;
+var onlySomeComputersCanRunProgram = false;
+
+for (var i = 0; i < computers.length; i++) {
+  var computer = computers[i];
+
+  if (computer.ram < 16) {
+    allComputersCanRunProgram = false;
+  } else {
+    onlySomeComputersCanRunProgram = true;
+  }
+}
+
+console.log(allComputersCanRunProgram);
+console.log(onlySomeComputersCanRunProgram);
+
+// every returns true or false if the condition
+// applied is true for all elements returns true
+// if the condition applied if false for all elemets returns false
+// for every we assume that there is an and operator for each element iteration result
+var conditionAppliedToAll = computers.every(function (computer) {
+  return computer.ram > 16;
+});
+
+console.log(conditionAppliedToAll);
+
+//some -> if the statement satisfies for even
+//one single element in the array or list some returns true
+// for some we assume to have or operator between each element/ statemeent result
+
+var conditionAppliedToAllElements = computers.some(function (computer) {
+  return computer.ram > 16;
+});
+
+console.log(conditionAppliedToAllElements);
+
+var names = ["Alexandria", "Matthew", "Joe"];
+
+var nameEveryGreaterThanFour = names.every(function (name) {
+  return name.length > 4;
+});
+
+console.log(nameEveryGreaterThanFour);
+
+var nameSomeGreaterThanFour = names.some(function (name) {
+  return name.length > 4;
+});
+
+console.log(nameSomeGreaterThanFour);
+
+function Field(value) {
+  this.value = value;
+}
+
+Field.prototype.validate = function () {
+  return this.value.length > 0;
+};
+
+var username = new Field("2cool");
+var password = new Field("my_password");
+var birthdate = new Field("10/10/2008");
+
+console.log(username.validate() && password.validate());
+
+var fields = [username, password, birthdate];
+
+var formIsValid = fields.every(function (field) {
+  return field.validate();
+});
+
+if (formIsValid) {
+  // allow user to submit
+} else {
+  //show an error message
+}
+
+//reduce -->
+
+var numbers = [10, 20, 30];
+var sum = 0;
+
+for (var i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+
+console.log(sum);
+
+var sumreduce = numbers.reduce(function (sum, number) {
+  return sum + number;
+}, 0);
+
+console.log(sumreduce);
+
+var primaryColors = [{ color: "red" }, { color: "yellow" }, { color: "blue" }];
+
+var colorArr = primaryColors.reduce(function (acc, primaryColor) {
+  acc.push(primaryColor.color);
+  return acc;
+}, []);
+
+console.log(colorArr);
+
+// check if a given string is a balanced parenthesis or unbalanced parenthesis
+
+function balancedParens(string) {
+  return !string.split("").reduce(function (previous, char) {
+    if (previous < 0) {
+      return previous;
+    }
+    if (char === "(") {
+      return ++previous;
+    }
+    if (char === ")") {
+      return --previous;
+    }
+    return previous;
+  }, 0);
+}
+
+console.log(balancedParens("(())()"));
+
+
+
